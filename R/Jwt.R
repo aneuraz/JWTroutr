@@ -57,10 +57,6 @@ Jwt <- R6::R6Class('Jwt',
                    }
 
                  },
-                 jwt_expired = function(claim) {
-                   if (is.null(claim$exp)) {stop('exp is missing in claim')}
-                   return(unclass(Sys.time()) > claim$exp)
-                 },
 
                  decode_jwt = function(jwt) {
                    self$decode_function(jwt, secret = private$key)
